@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Welcome Dolcy</title>
+
+<style>
+body{
+margin:0;
+text-align:center;
+font-family:Arial;
+background:#ffc0cb;
+overflow:hidden;
+}
+
+button{
+background:#ff99cc;
+border:none;
+padding:15px 30px;
+font-size:18px;
+border-radius:25px;
+}
+
+.slide{
+display:none;
+padding-top:100px;
+}
+
+.active{
+display:block;
+}
+
+.sideimg{
+position:fixed;
+top:20%;
+width:200px;
+box-shadow:0 0 20px pink;
+border-radius:20px;
+}
+
+.left{left:0;}
+.right{right:0;}
+
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:20px;
+animation:float 6s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-100vh);}
+}
+</style>
+
+<script>
+function nextSlide(id){
+document.querySelectorAll(".slide").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function playMusic(){
+document.getElementById("music").play();
+}
+</script>
+
+</head>
+
+<body>
+
+<img src="photo1.jpg" class="sideimg left">
+<img src="photo2.jpg" class="sideimg right">
+
+<div class="heart" style="left:10%;">❤️</div>
+<div class="heart" style="left:50%;animation-delay:2s;">💖</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="s1" class="slide active">
+<h1>HEY DOLCY 👋</h1>
+<button onclick="playMusic();nextSlide('s2')">CLICK TO ENTER ❤️</button>
+</div>
+
+<div id="s2" class="slide">
+<h1>WELCOME BACK 💐</h1>
+<img src="bouquet.jpg" width="300">
+<br><br>
+<button onclick="nextSlide('s3')">Next ➡️</button>
+</div>
+
+<div id="s3" class="slide">
+<h2>QUIZ TIME 😜</h2>
+<p>1. What did you miss the most?</p>
+<p>2. Did you miss me everyday?</p>
+<p>3. First thought after seeing me?</p>
+<button onclick="nextSlide('s4')">Next ➡️</button>
+</div>
+
+<div id="s4" class="slide">
+<h1>Welcome Home Dolcy 💖</h1>
+<p>It has been a whole year without you...</p>
+<button onclick="nextSlide('s5')">Next ➡️</button>
+</div>
+
+<div id="s5" class="slide">
+<h1>Secret 😂</h1>
+<p>JUST KIDDING 😜</p>
+<br>
+<img src="cake.png" width="300">
+</div>
+
+</body>
+</html>
